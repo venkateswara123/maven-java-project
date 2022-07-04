@@ -1,0 +1,272 @@
+--Date functions in sql
+
+select SYSDATETIME()
+select SYSDATETIMEOFFSET()
+
+select DATENAME(year,getdate())
+select DATENAME(month,getdate())
+select DATENAME(quarter,getdate())
+select DATENAME(DAYOFYEAR,GETDATE())
+select DATENAME(week,getdate())
+select DATENAME(WEEKDAY,getdate())
+select DATENAME(day,getdate())
+select DATENAME(hour,getdate())
+select DATENAME(minute,getdate())
+select DATENAME(second,getdate())
+select DATENAME(ISO_WEEK,GETDATE())
+
+select DAY(getdate())
+select month(getdate())
+select YEAR(getdate())
+
+
+
+--Numeric functions in sql server
+
+--abs() function returns the absoluate value of given number
+select ABS(-123.452)as absnumber
+
+--power() function return the given number square root value
+select POWER(10,2) as squarerootvalue
+
+--round() function retturn the given number rounded to the nth decimal place
+select ROUND(323.415,2)
+
+--sin() function in SQL will return the sine of a number
+select SIN(3)
+
+--sqrt() function returns the square root of a number
+select SQRT(4)
+
+--floor() function returns the largest integer value that is smaller than or equal to a given number
+select FLOOR(30.95)
+
+--exp() function returns the raised to power of given number
+select EXP(237)
+
+-- ceiling() function returns the nearest value after decimal
+select CEILING(23.7)
+
+
+--String functions
+
+--Convert an ASCII value to a character
+select ascii('a')
+
+--Join two or more strings into one string
+select CONCAT('venkatesh','nirmala')
+
+--Concatenate multiple strings with a separator into a single string
+select CONCAT_WS(' ' ,'venkatesh','nirmala')
+
+--Extract a given a number of characters from a character string starting from the left
+select LEFT('venkatesh',3)
+
+--Extract a given a number of characters from a character string starting from the right
+select RIGHT('venkatesh',3)
+
+--Return a number of characters of a character string
+select LEN('venkatesh')
+
+--converts a stirng to lower
+select LOWER('VENKATESH')
+
+--converts a string to upper
+select UPPER('venkatesh')
+
+--Return a new string from a specified string after removing all leading blanks from leftside
+select LTRIM('  vicky')
+
+--Return a new string from a specified string after removing all leading blanks from rightside
+select RTRIM('venkat        ')
+
+-- display the reverse order of given string
+select REVERSE('venkatesh')
+
+
+
+
+
+
+====================================POWER BI==================================================
+
+DAX(Data Analysis Expression) functions
+=======================================
+
+Date functions
+--------------
+TODAY():-  Display the latest date
+syntax:-   =today()
+
+FORMAT():- Display the date format like this "dd-mm-yyyy"
+syntax:-  =format('tablename'[column name],"dd-mm-yyyy")
+
+If you want to display the last 10 days data we can follow this syntax
+
+syntax:-  =CALENDAR(today()-10,today())
+
+
+NOW() :-It will display the current date and time (or) last refresh datetime
+syntax:- =NOW()
+
+UTCTODAY():-It will display the universal date and time
+syntax:-=UTCTODAY()
+
+UTCNOW():- display the current universal date and time
+syntax:- =UTCNOW()
+
+DATEDIFF():- It will display the difference between two dates (or) finding the age and experience by using this function
+syntax:- =DATEDIFF(date1,date2,interval)
+example:-DATEDIFF(date(1995-07-10),today(),year/month/day/hour/minutes/seconds/milliseconds)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========Power BI interview questions and answers=================
+
+1. what is power bi?
+Ans:Power bi is a cloud based data sharing environment.Once you have developed reports using power query,poewr pivot and power view you 
+    can share your insights with your colleagues.power bi which technically ia an aspects of share point online,lets you load excelwork 
+    book into the cloud and share them with a choosen group of co-workers but your colleagues interact with your reports to apply slicer
+    filter to highlight data 
+
+    Power bi features?
+    .share your presentations and queries with your colleagues
+    .update your excel file from data sources that can be on-site or in the cloud
+    .display the out put on multiple devices.this includes pc's,tablets,html5 enabled mobile devices thst use the power bi app
+2. what are the major components of power bi?
+Ans:	the major components of power bi are as follows
+	power query:
+	===========  It is one of the most important components of power bi to transform data.power query helps to extract data
+	from different data sources like oracle,sql,text/csv files,excel,etc and even delete from differentsources.
+	power pivot:
+	===========  It is used for data modeling that uses DAX(Data analysis Expression) functions for the calculations. relationships
+	between different tables can also be created here and we can get values that can be shown in pivot tables.
+	power view:
+	=========== The power view is used for providing an intuitive display of the data and retrieving the metadata for data analysis
+	the views are interactive in nature and slicers and filter can be used for slicing and dicing the data.
+	power bi desktop:
+	================= power desktop is an integration tool for power query,power view,power pivot.it helps to create advanced queries
+	data models,reports and dashboard and helps in developing your bi skills for data analysis
+	power Bi Mobile Application:
+	============================ it is available for the operating systems android,ios and even windows. the app has an interactive
+	display of the dashboards which can be shared as well.
+	power map:
+	========== it presents geo-spatial visualization of the data in 3 dimensional mode. the data can be highlighted based on the 
+	geographical location which can be continent,state,city or even street address.
+	power Q&A:
+	========== It is used to provide answers to the questions asked by users. it works with power view and can be answered with 
+	representation by power Q&A.
+3.     Difference between power query and power pivot ?
+Ans:             power query                                                     power pivot
+                 ===========                                                     ============
+         1.power query is all about analyzing data                       1.power pivot is all about gettiing and transforming data
+         2.power query is ETL service                                    2.power pivot is in-memory data modeling component
+
+4.     What is DAX?
+      
+ANS:   DAX stands for data analysis expression.its a collection of function,operators and constants used in formulas to calculate
+       and return values. In other words,it helps to create new infofrom data you already have
+
+5.     What are filters in power bi ?
+Ans:   The term "filter" is self-explanatory. filters are mathematical and logical conditions applied to data to filter out essential
+       information rows and columns. The following are the variety of filter available in power bi
+        manual filters,auto filters,include/exclude filters,drill-down filters,cross drill filters,drillthrough filters,
+       URLfilters-transient
+
+6.     What are custom visuals in power bi?
+Ans:   Custom visuals are like any other visualization, generated using power bi.The only difference is that it developes the custom visuals
+       using custom SDK.The languages like JQuery and java script are used to create custom visuals in power bi.
+
+7.     What is getdata in power bi?
+Ans:   get data is a simple icon on power bi used to import data from the source.
+
+8.     Advantages of power bi ?
+Ans:   1.it helps build an interactable data visualization in data centers
+       2.it allows users to transform data into visuals and share them with anyone
+       3.it provide quick and accurate solutions 
+       4.it enables users to perform queries on reports using simple english words
+      
+9.     List out some drawbacks/limitations of using power bi?
+Ans:   >>power bi does not accept file sizes larger than 1GB and doesnt mix imported data accessed from real time connection
+       >>There are very few data source that allow real-time connection to power bi reports and dashboards.
+       >>it only shares dashboards and reports with users logged in with same email address
+       >>Dashboards doesnt accept or pass user,account, or other entity parameters
+
+10.    Different connectivity modes available in power bi?
+Ans:   ther are three main connectivity modes used in power bi
+
+       SQL Server Import
+       =================
+	An SQL server import is the default and most common connectivity type used in power bi. it allows you to use the full
+	capabilities of the power bi desktop.
+
+	DirectQuery
+	===========
+	The direct query connection type is only available when you connect to specific data source.in this connectivity type
+	power bi will only store the metadata of the underlying data and not the actual data
+
+	Live Connection
+	===============
+	with this connectivity type,it does not stored the data in power bi model.all interaction with a report using a live connection will
+	directlym query the existing analysis services model. there are only 3 data sources that support the live connection method
+
+11.	what is a dashboard in power bi?
+Ans:	A dashboard is a single layer presentation sheet of multiple visualizations reports. The main feattures of the power bi dashboard
+	=> it allows you to drill through the page,bbokmarks and selection pane and also lets you create various tiles and integrate
+	=> a dashboard can also help you set report layout to mobile view
+
+12.	Explain how relationships are defined in power bi desktop?
+Ans:	relationship between tables are defined into tow types
+	manually- relationships between tables are manually defirned using primary and foreign keys.
+	automatic-when enable this automated feature of power bi detects relationships between tables and create then automatically.
+
+13.	Can you have more than one functional relationship between two tables in a power pivot data model?
+Ans:	No. there can be multiple inactive realationships, but only one active relationship between two tables in power pivot data model.
+	Dotted lines present inactive relationship,and continuous lines represent active relationships.
+
+14.	what is the CALCULATE function in DAX?
+Ans:	The CALCULATE function evaluate the sum of the sales table sales amount column in a modified filter context. it is also the only function
+	that allows users to modify the filter context of measures or tables.
+
+15.	Where is data stored  in power bi?
+Ans:	most of the time ,power bi gets assisted by the cloud to store the  data.power bi can use a desktop service.
+	microsoft azure is used as the primary cloud service to store data.
+	1.azureSQL Database
+	2.Azure Blob storage
+
+16.	what are the different views available in power bi desktop?
+Ans:	there three different views in power bi
+
+	report view--IN this view,user can add visualizations and additional report pages and publish the same on the portal
+	data view--in this view,data shaping can be performed using query editor tools.
+	model view-- in this view,users can manage relationshhips between complex datasets
+
+17.	what are the various versions of power bi?
+Ans:	power bi desktop
+	power bi service
+	mobile power bi apps for IOS and android services
+
+18.	what are the three fundamental concepts of DAX?
+Ans:	syntax,function,context
+
+
+
+
+
+		
